@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+{% block body_content %}
+
+<head>
+    <title>Addd a task to the To-Do list</title>
+</head>
+<body>
+    <div class='form'>
+        <form method='POST' action=''>
+            {{ form.hidden_tag() }}
+            {{ form.new_task.label }} {{ form.new_task }}
+            <br>
+            {{ form.submit }}
+        </form>
+    </div>
+</body>
+{% endblock body_content %}

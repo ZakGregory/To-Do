@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+{% block body_content %}
+
+{% for tasks in all_tasks %}
+{{ tasks.name }}
+{% if tasks.complete %}
+&#9989
+{% endif %}
+<br>
+<form action='{{ url_for('delete', taskid= tasks.id) }}'>
+	<button>delete</button>
+</form>
+<form action='{{ url_for('update', taskid= tasks.id) }}'>
+        <button>update</button>
+</form>
+{% if tasks.complete %}
+<form action='{{ url_for('incomplete', taskid= tasks.id) }}'>
+        <button>incomplete</button>
+</form>
+{% else %}
+<form action='{{ url_for('complete', taskid= tasks.id) }}'>
+        <button>complete</button>
+</form>
+{% endif %}
+
+{% endfor %}
+{% endblock body_content %}
